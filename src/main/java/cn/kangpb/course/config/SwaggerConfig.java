@@ -29,7 +29,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("测试抢课API是否运行成功")
-                .version("1.0")
+                .version("1.1")
                 .build();
     }
 

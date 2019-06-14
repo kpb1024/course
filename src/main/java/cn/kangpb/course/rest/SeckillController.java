@@ -19,11 +19,23 @@ public class SeckillController {
     @Autowired
     private CourseService courseService;
 
-    @ApiOperation(value = "最基础的抢课功能实现")
-    @PostMapping
+    @ApiOperation(value = "基础实现+限流注解")
+    @PostMapping("/basic")
     public Result basicSECKILL(int cid) {
-        //模仿1000人抢课
-        return courseService.testBasicSECKILL(cid);
+        return courseService.testBasicSECKILL(cid, false);
+    }
+
+    @ApiOperation(value = "本机锁")
+    @PostMapping("basicLock")
+    public Result basicSECKILLWithLock(int cid) {
+
+        return courseService.testBasicSECKILL(cid, true);
+    }
+
+    @ApiOperation(value = "AOP锁实现")
+    @PostMapping("/AOPLock")
+    public Result AOPLock(int cid) {
+        return courseService.aopSECKILL(cid);
     }
 
 }
