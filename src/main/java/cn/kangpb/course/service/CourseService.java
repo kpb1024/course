@@ -67,6 +67,31 @@ public class CourseService {
         return Result.ok();
     }
 
+    public Result ppcSECKILL(int cid) {
+        int num = 1000;
+        final CountDownLatch latch = new CountDownLatch(num);//N个购买者
+        reset(cid);
+        LOGGER.info("开始抢课五(正常、数据库锁最优实现)");
+        for(int i=0;i<1000;i++){
+            final int sid = i;
+            Runnable task = () -> {
+                Result result = startSECKILLAOPLock(cid, sid);
+                LOGGER.info("用户:{}{}",sid,result.get("msg"));
+                latch.countDown();
+            };
+            executor.execute(task);
+        }
+        try {
+            latch.await();// 等待所有人任务结束
+            int count = getSECKILLCount(cid);
+            LOGGER.info("一共秒杀出{}件商品",count);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return Result.ok();
+    }
+
+
     public Result aopSECKILL(int cid) {
         reset(cid);
         int num = 1000;
@@ -96,7 +121,6 @@ public class CourseService {
 
 
     @Transactional
-    @ServiceLock
     public Result startSECKILLAOPLock(int cid, int sid) {
         int number = courseMapper.getNum(cid);
         if(number>0){

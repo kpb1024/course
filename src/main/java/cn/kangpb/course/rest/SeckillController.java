@@ -38,4 +38,10 @@ public class SeckillController {
         return courseService.aopSECKILL(cid);
     }
 
+    @ApiOperation(value = "悲观锁")
+    @PostMapping("/Pessimistic")
+    public Result pessimisticConcurrencyControl(int cid) {
+        return courseService.ppcSECKILL(cid);
+    }
+
 }
