@@ -20,7 +20,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.kangpb.course.rest"))
+                .apis(RequestHandlerSelectors.basePackage("cn.kangpb.course"))
                 .paths(PathSelectors.any())
                 .build();
     }

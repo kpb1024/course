@@ -121,6 +121,7 @@ public class CourseService {
 
 
     @Transactional
+    @ServiceLock
     public Result startSECKILLAOPLock(int cid, int sid) {
         int number = courseMapper.getNum(cid);
         if(number>0){
