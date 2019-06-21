@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<table class="table table-dark">
+<table class="table table-light">
 	<thead>
 		<tr>
 			<th scope="col">#</th>
@@ -16,6 +16,8 @@
 			<th scope="col">学期</th>
 			<th scope="col">年份</th>
 			<th scope="col">类型</th>
+			<th scope="col">课容量</th>
+			<th scope="col">抢课</th>
 		</tr>
 	</thead>
 	<c:forEach items="${courses}" begin="0" var="course">
@@ -25,6 +27,9 @@
 			<td><c:out value="${course.courseterm}"></c:out></td>
 			<td><c:out value="${course.courseyear}"></c:out></td>
 			<td><c:out value="${course.coursetype}"></c:out></td>
+			<td><c:out value="${course.coursevolume}"></c:out></td>
+			<td><a href="/distributedCourse/ZookeeperSEKILL?cid=<c:out value="${course.cid}"></c:out>">LET'S GO!!</a>
+			</td>
 		</tr>
 	</c:forEach>
 </table>

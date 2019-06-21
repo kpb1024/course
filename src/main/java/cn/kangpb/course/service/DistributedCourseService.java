@@ -31,7 +31,7 @@ public class DistributedCourseService {
 
     public Result zkSECKILL(int cid) {
         reset(cid);
-        int num = 10000;
+        int num = 1000;
         final CountDownLatch latch = new CountDownLatch(num);//N个购买者
         LOGGER.info("运用Zookeeper分布式锁抢课开始");
         for(int i=0;i<num;i++){

@@ -6,6 +6,7 @@ import cn.kangpb.course.service.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "分布式锁")
 @RestController
 @RequestMapping("/distributedCourse")
-public class DistributedSeckillController {
+public class DistributedSECKILLController {
 
 
     @Autowired
     private DistributedCourseService distributedCourseService;
 
-    @ApiOperation(value = "基础实现+限流注解")
-    @PostMapping("/ZookeeperSEKILL")
+    @ApiOperation(value = "Zookeeper锁")
+    @GetMapping("/ZookeeperSEKILL")
     public Result ZookeeperSEKILL(int cid) {
         return distributedCourseService.zkSECKILL(cid);
     }

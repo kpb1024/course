@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 public interface CourseMapper {
-    @Select("Select * from course where cid = #{cid}")
-    Course findById(@Param("seckill_id") int cid);
-
     @Select("select * from course")
     List<Course> getAll();
 

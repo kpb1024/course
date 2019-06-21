@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@Api(tags = "RestFul Apis")
+@Api(tags = "抢课")
 @RestController
 @RequestMapping("/course")
 public class SeckillController {
