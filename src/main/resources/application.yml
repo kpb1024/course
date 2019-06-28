@@ -15,3 +15,25 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+  kafka:
+    bootstrap-servers: 129.204.15.237:9092
+    consumer:
+      group-id: 0
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      batch-size: 65536
+      buffer-memory: 524288
+  redis:
+    database: 0
+    host: 129.204.15.237
+    port: 6379
+    password: 13148899
+    timeout: 30000
+  session:
+    store-type: redis
+
+zookeeper:
+  address: 129.204.15.237:2181

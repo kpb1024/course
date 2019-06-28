@@ -1,9 +1,6 @@
 package cn.kangpb.course.service;
 
 import cn.kangpb.course.dao.CourseMapper;
-import cn.kangpb.course.pojo.Course;
-import cn.kangpb.course.utils.ServiceLimit;
-import cn.kangpb.course.utils.ServiceLock;
 import cn.kangpb.course.utils.ZookeeperLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -31,7 +27,7 @@ public class DistributedCourseService {
 
     public Result zkSECKILL(int cid) {
         reset(cid);
-        int num = 1000;
+        int num = 300;
         final CountDownLatch latch = new CountDownLatch(num);//N个购买者
         LOGGER.info("运用Zookeeper分布式锁抢课开始");
         for(int i=0;i<num;i++){

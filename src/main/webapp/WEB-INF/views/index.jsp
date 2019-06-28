@@ -28,7 +28,7 @@
 			<td><c:out value="${course.courseyear}"></c:out></td>
 			<td><c:out value="${course.coursetype}"></c:out></td>
 			<td><c:out value="${course.coursevolume}"></c:out></td>
-			<td><a href="/distributedCourse/ZookeeperSEKILL?cid=<c:out value="${course.cid}"></c:out>">LET'S GO!!</a>
+			<td><a href="/course/getCourse/<c:out value="${course.cid}"></c:out>">开始抢课!!</a>
 			</td>
 		</tr>
 	</c:forEach>

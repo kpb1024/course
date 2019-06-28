@@ -12,6 +12,9 @@ public interface CourseMapper {
     @Select("select coursevolume from course where cid = #{cid}")
     int getNum(int cid);
 
+    @Select("select * from success where cid = #{cid} and sid = #{sid} limit 1")
+    Course isSuccess(int cid, int sid);
+
     @Update("update course set coursevolume = coursevolume-1 where cid = #{cid}")
     int minusOne(int cid);
 
@@ -26,4 +29,5 @@ public interface CourseMapper {
 
     @Delete("delete from success where cid = #{cid}")
     void resetSuccess(int cid);
+
 }
